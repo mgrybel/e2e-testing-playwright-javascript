@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Positive scenarios', () => {
-  test('@smoke @regression Log in to the app with valid customer credentials', async ({
+  test('Log in to the app with valid customer credentials @smoke @regression', async ({
     page,
   }) => {
     const pageManager = new PageManager(page);
@@ -17,7 +17,7 @@ test.describe('Positive scenarios', () => {
 });
 
 test.describe('Negative scenarios', () => {
-  test('@regression A customer cannot log in with invalid credentials', async ({
+  test('A customer cannot log in with invalid credentials @regression', async ({
     page,
   }) => {
     const pageManager = new PageManager(page);
@@ -25,7 +25,7 @@ test.describe('Negative scenarios', () => {
     await expect(pageManager.getLoginPage().invalidLoginMessage).toBeVisible();
   });
 
-  test('@regression A customer must fill all fields', async ({ page }) => {
+  test('A customer must fill all fields @regression', async ({ page }) => {
     const pageManager = new PageManager(page);
     pageManager.getLoginPage().performLogin('', 'test123');
     await expect(
